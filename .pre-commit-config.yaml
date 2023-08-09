@@ -1,4 +1,19 @@
 repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: debug-statements #Check for debugger imports and breakpoint() in python files
+  - id: check-ast #Simply check whether files parse as valid python
+  - id: fix-byte-order-marker #removes UTF-8 byte order marker
+  - id: check-json
+  - id: detect-private-key # detect-private-key is not in repo
+  - id: check-yaml
+  - id: check-added-large-files
+  - id: check-shebang-scripts-are-executable
+  - id: check-case-conflict #Check for files with names that would conflict on a case-insensitive filesystem like MacOS HFS+ or Windows FAT
+  - id: end-of-file-fixer #Makes sure files end in a newline and only a newline
+  - id: trailing-whitespace
+  - id: mixed-line-ending
 - repo: https://github.com/psf/black
   rev: 23.7.0
   hooks:
@@ -7,6 +22,5 @@ repos:
   rev: 5.12.0
   hooks:
   - id: isort
-    name: isort (python)
+    name: isort
     args: ["--profile=black"]
-
